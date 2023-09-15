@@ -1,9 +1,6 @@
 package friendsofmine.m2.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -20,13 +17,18 @@ public class Activite {
 
     private String descriptif;
 
+    @NotNull
+    @ManyToOne
+    private Utilisateur responsable ;
+
     public Activite() {
 
     }
 
-    public Activite(String titre, String descriptif) {
+    public Activite(String titre, String descriptif, Utilisateur resp) {
         this.titre = titre;
         this.descriptif = descriptif;
+        this.responsable = resp;
     }
 
     public String getTitre() {
@@ -43,6 +45,14 @@ public class Activite {
 
     public void setDescriptif(String descriptif) {
         this.descriptif = descriptif;
+    }
+
+    public Utilisateur getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(Utilisateur responsable) {
+        this.responsable = responsable;
     }
 
     public Long getId() {

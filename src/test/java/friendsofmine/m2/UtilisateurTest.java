@@ -108,4 +108,13 @@ public class UtilisateurTest {
         // then: util n'est pas validé par le validator
         assertFalse(validator.validate(util).isEmpty());
     }
+
+    @Test
+    public void testUnNouvelleUtilisateurEstSansActivite() {
+        // given; un nouvel Utilisateur
+        // when: l'Utilisateur util est créé
+        Utilisateur util = new Utilisateur("Durand", "Eric", "jd@jd.com", "M");
+        // then:  util n'a pas d'activité
+        assertEquals(0, util.getActivites().size(), "Un nouvel Utilisateur n'a pas d'activité");
+    }
 }
