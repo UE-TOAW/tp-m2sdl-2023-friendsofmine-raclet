@@ -32,6 +32,9 @@ public class Utilisateur {
     @OneToMany(mappedBy = "responsable", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     private Collection<Activite> activites = new ArrayList<>();
 
+    @Version
+    private Long version;
+
     public Utilisateur() {}
 
     public Utilisateur(String unNom, String unPrenom, String unEmail,
@@ -92,4 +95,7 @@ public class Utilisateur {
         activite.setResponsable(this);
     }
 
+    public Long getVersion() {
+        return version;
+    }
 }
