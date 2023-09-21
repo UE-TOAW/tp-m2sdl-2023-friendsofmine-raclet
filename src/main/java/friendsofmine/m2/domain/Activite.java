@@ -29,6 +29,8 @@ public class Activite {
         this.titre = titre;
         this.descriptif = descriptif;
         this.responsable = resp;
+        if (resp != null)
+            resp.addActivite(this);
     }
 
     public String getTitre() {

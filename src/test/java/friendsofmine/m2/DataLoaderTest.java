@@ -45,10 +45,12 @@ public class DataLoaderTest {
         DataLoader spy = spy(dataLoader);
         // when: la méthode run est appelée
         spy.run(null);
-        // then: la méthode initUtilisateurs() qui ajoute les utilisateurs en base est invoquée
+        // then: la méthode initUtilisateurs() qui crée les objets utilisateurs
         verify(spy).initUtilisateurs();
-        // then: la méthode initActivites() qui ajoute les activités en base est invoquée
+        // then: la méthode initActivites() qui crée les objets activités
         verify(spy).initActivites();
+        // then: la méthode saveUtilisateursAndActivites() qui insère en base les objets utilisateurs et activités
+        verify(spy).saveUtilisateursAndActivites();
 
     }
 }
