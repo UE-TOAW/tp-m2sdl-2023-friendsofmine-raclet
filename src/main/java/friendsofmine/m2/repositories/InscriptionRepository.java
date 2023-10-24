@@ -6,8 +6,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
+import java.util.ArrayList;
+
 public interface InscriptionRepository extends PagingAndSortingRepository<Inscription, Long>, CrudRepository<Inscription, Long> {
 
     public Page<Inscription> findByParticipantNomOrActiviteTitreAllIgnoreCase(String nom, String titre, Pageable pageable);
+    public ArrayList<Inscription> findByParticipantNomOrActiviteTitreAllIgnoreCase(String nom, String titre);
 
 }
